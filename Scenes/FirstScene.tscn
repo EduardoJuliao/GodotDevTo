@@ -1,7 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://dj1tfd3n3sulu"]
+[gd_scene load_steps=4 format=3 uid="uid://dj1tfd3n3sulu"]
 
 [ext_resource type="PackedScene" uid="uid://bwx5rw772srx3" path="res://Characters/Player/Player.tscn" id="1_n2ce3"]
+[ext_resource type="PackedScene" uid="uid://d2ii1atjxs53q" path="res://Characters/Player/Camera/PlayerCamera.tscn" id="2_tpacv"]
+[ext_resource type="Texture2D" uid="uid://c0dwq4kipkgq7" path="res://icon.svg" id="3_iyqpw"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_n2ce3")]
+
+[node name="PlayerCamera" parent="." instance=ExtResource("2_tpacv")]
+
+[node name="Icon" type="Sprite2D" parent="."]
+modulate = Color(0.0980392, 1, 0.0588235, 1)
+position = Vector2(141, -191)
+texture = ExtResource("3_iyqpw")
+
+[editable path="Player"]

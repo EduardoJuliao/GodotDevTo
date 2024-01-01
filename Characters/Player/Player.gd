@@ -83,7 +83,7 @@ func move(delta: float):
 	animationTree.set("parameters/Walk/blend_position", input_vector);
 	animationTree.set("parameters/Roll/blend_position", input_vector);
 
-	animationState.travel("Run");
+	animationState.travel("Walk");
 
 	# If the player is pressing movement keys, then the player should speed up.
 	# move_toward() will move the player toward the target velocity, but will not exceed the target velocity.
@@ -93,10 +93,14 @@ func move(delta: float):
 	# move_and_slide() will also stop the player from moving if the player is colliding with a wall.
 	move_and_slide();
 
+## Called when the player presses the roll button.
+## @return void
 func roll():
 	velocity = _roll_vector * _roll_speed;
 	animationState.travel("Roll");
 	move_and_slide();
 
+## Called when the roll animation ends.
+## @return void
 func on_roll_ended():
 	_current_state = states.MOVE;
